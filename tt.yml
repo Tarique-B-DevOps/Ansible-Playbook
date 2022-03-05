@@ -1,0 +1,22 @@
+---
+
+- name: create dir
+  hosts: playb
+ 
+
+  tasks:
+  - name: Ensure dir is there
+    file:
+      path: /home/ubuntu/testdir
+      state: directory
+
+- name: text
+  hosts: playb
+
+  tasks:
+  - name: enter the text
+    copy:
+      dest: /home/ubuntu/testdir
+      content: Hi this is tarique from playbook master node
+
+...

@@ -1,0 +1,13 @@
+---
+
+- name: Update the web servers
+  hosts: nodes
+  
+  tasks:
+  - name: Install pip on nodes
+    apt:
+      name: python3-pip
+      state: present
+
+...
+

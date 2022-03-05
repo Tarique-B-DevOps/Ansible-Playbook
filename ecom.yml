@@ -1,0 +1,22 @@
+---
+
+- name: install the apache
+  hosts: playb
+  become: yes
+
+  tasks:
+  - name: Ensure apache is installed
+    apt:
+      name: apache2
+      state: present
+
+- name: get repo
+  hosts: playb
+  become: yes
+
+  tasks:
+  - name: clone the repo
+    git:
+      repo: https://github.com/Tarique-B/Ecomm.git
+      dest: /var/www/html
+...

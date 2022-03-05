@@ -1,0 +1,13 @@
+---
+
+- name: Update the web servers
+  hosts: nodes
+  
+  tasks:
+  - name: Ensure directory is created
+    file:
+      path: /home/ubuntu/playbooktest
+      state: directory
+
+...
+
