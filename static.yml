@@ -1,0 +1,40 @@
+---
+
+- name: static
+  hosts: n2
+  become: yes
+
+  #passing user defined variables
+  
+  vars:
+    username: Tarique
+    location: Canada
+
+  #using handlers to handle services
+  
+  handlers:
+  - name: Restart apache
+    service:
+      name: apache
+      state: restarted
+
+  tasks:
+  - name: Ensure static is updated
+    template:
+      src: static.j2
+      dest: /var/www/html/static.html 
+ 
+  - name: Ensure date page is updated
+    copy:
+      src: date.php
+      dest: /var/www/html/date.php
+
+  - name: Ensure php is installed
+    apt:
+      name: php
+      state: present
+    notify:
+    - Restart apache    
+...
+
+
