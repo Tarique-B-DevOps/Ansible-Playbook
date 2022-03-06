@@ -1,0 +1,8 @@
+---
+- name: Update the web servers
+  hosts: n1
+  become: yes
+
+  roles:
+  - testr
+...

@@ -1,0 +1,18 @@
+---
+
+- name: install httpd
+  apt:
+          name: apache2
+          state: present
+
+- name: Restart httpd
+  service:
+          name: apache2
+          state: restarted
+
+- name: copy the credentials
+  copy:
+          src: /home/ubuntu/rol.yml
+          dest: /home/ubuntu/rol.yml
+
+...          
